@@ -16,3 +16,5 @@ elif operacion == 4:
           print(division)
 else:
         print('No valido apa')
+
+#No hay mucho que decir, es cierto que le faltan ciclos para evitar la division entre 0 y poder que sean decimales, pero mejor asi.
