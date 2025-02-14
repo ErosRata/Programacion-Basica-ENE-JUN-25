@@ -1,4 +1,4 @@
-animatronico = int(input("Por que animatronico quieres ser asustado? (Freddy = 1, Bonnie = 2, Chica = 3, Foxy = 4): "))
+animatronico = int(input("Por cual animatronico quieres ser asustado? (Freddy = 1, Bonnie = 2, Chica = 3, Foxy = 4): "))
 Freddy = f'''
                     ...+%%%@@@@@%%%%%%%%%@%%+*%@@@@%%%%%%%%%%%%%%%%%#################%%%*:=%#%@@%%%%%@@@@@@@@%+....                   
                     ...+%#%@@@@%%%%%%%%%@%%%#@@@%%@@@@@@@@@@@%%%%%%##########%%%%%%###%%%**@%@@%%%%%%%%@@@@@@%#:...                   
@@ -223,4 +223,4 @@ elif animatronico == 3:
 elif animatronico == 4:
     print(Foxy)
 else:
-    print("xd")
+    print(":v")
