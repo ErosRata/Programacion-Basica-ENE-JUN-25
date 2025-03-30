@@ -4,14 +4,14 @@ def nuevo_contacto():
     nombre = input("Ingrese el nombre: ")
     numero = input("Ingrese el numero: ")
     correo = input("ingrese el correo: ")
-    contacto = (nombre, numero, correo)
+    contacto = (nombre.capitalize, numero, correo)
     agenda_contactos.append(contacto)
     return "Contacto agregado"
 
 def buscar_contacto():
     nombre = input("Ingrese el nombre del contacto que esta buscando:")
     for contacto in agenda_contactos:
-        if contacto[0].lower == nombre.lower:
+        if contacto[0] == nombre.capitalize:
             print("Nombre", contacto[0], "Numero", contacto[1], "Correo", contacto[2])
     return "Contacto no encontrado"
 
