@@ -1,18 +1,19 @@
-agenda_contactos = []
+with open("agenda", "r") as f:
+    agenda_contactos = eval(f.read())
 
 def nuevo_contacto():
     nombre = input("Ingrese el nombre: ")
     numero = input("Ingrese el numero: ")
     correo = input("ingrese el correo: ")
-    contacto = (nombre.capitalize, numero, correo)
+    contacto = (nombre.capitalize(), numero, correo)
     agenda_contactos.append(contacto)
     return "Contacto agregado"
 
 def buscar_contacto():
     nombre = input("Ingrese el nombre del contacto que esta buscando:")
     for contacto in agenda_contactos:
-        if contacto[0] == nombre.capitalize:
-            print("Nombre", contacto[0], "Numero", contacto[1], "Correo", contacto[2])
+        if contacto[0] == nombre.capitalize():
+            return contacto
     return "Contacto no encontrado"
 
 def ordenar_contactos():
@@ -29,3 +30,6 @@ elif accion == "3":
     print(ordenar_contactos())
 else:
     print("Escoje bien pa")
+
+with open("agenda", "w") as f:
+    f.write(str(agenda_contactos))

@@ -1,25 +1,26 @@
-inventario = []
+with open("almacen", "r") as f:
+    inventario = eval(f.read())
 
 def agregar_producto():
     nombre = input("Ingrese el nombre: ")
     categoria = input("Ingrese el numero: ")
     precio = input("ingrese el correo: ")
     cantidad = input("Ingrese la cantidad: ")
-    producto = (nombre.capitalize, categoria, precio, cantidad)
+    producto = (nombre.capitalize(), categoria, precio, cantidad)
     inventario.append(producto)
     return "Producto agregado"
 
 def eliminar_producto():
     nombre = input("Ingrese el nombre del prodcuto que desea eliminar:")
     for producto in inventario:
-        if producto[0] == nombre.capitalize:
+        if producto[0] == nombre.capitalize():
             inventario.remove(producto)
     return "Producto eliminado"
 
 def buscar_info():
     nombre = input("Ingrese el nombre del prodcuto que desea eliminar:")
     for producto in inventario:
-        if producto[0] == nombre.capitalize:
+        if producto[0] == nombre.capitalize():
             print("Categoria:", producto[1], "Precio:", producto[2], "Cantidad:", producto[3])
     return "No existe o ingrese mejor el nombre"
 
@@ -39,3 +40,6 @@ elif accion == "4":
     print(ordenar_inventario())
 else:
     print("Escoje bien pa")
+
+with open("almacen", "w") as f:
+    f.write(str(inventario))
