@@ -9,7 +9,7 @@ def validar_sintoma(sintoma):
 
 def buscar_medicamentos(sintoma):
     url = "https://api.api-ninjas.com/v1/drug?name=" + sintoma.lower()
-    headers = {'X-Api-Key': 'TU_API_KEY_AQUI'}  # REEMPLAZA con tu API Key
+    headers = {'X-Api-Key': 'SQi2iFURR0HZUMPvEc+rew==NXO7vBBuf4SMPefK'}
     try:
         respuesta = requests.get(url, headers=headers)
         if respuesta.status_code == 200:
@@ -36,7 +36,7 @@ def guardar_en_csv(medicamentos, sintoma):
 
 def main():
     print("SISTEMA DE CONSULTA FARMACÉUTICA")
-    sintoma = input("Ingrese un síntoma (ej. dolor de cabeza): ").strip()
+    sintoma = input("Ingrese un síntoma:").strip()
 
     if not validar_sintoma(sintoma):
         print("Entrada inválida. Solo letras, sin números o símbolos.")

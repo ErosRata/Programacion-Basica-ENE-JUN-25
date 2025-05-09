@@ -18,7 +18,7 @@ def cargar_datos(nombre_archivo):
                 medicamentos.append(fila)
         return medicamentos
     except FileNotFoundError:
-        print("Archivo no encontrado.")
+        print("Archivo no encontrado")
         sys.exit(1)
 
 def analizar_medicamentos(medicamentos):
@@ -51,7 +51,7 @@ def graficar(medicamentos, nombre_archivo):
     plt.figure(figsize=(10, 5))
     plt.bar(nombres, longitudes, color='teal')
     plt.xticks(rotation=45, ha='right')
-    plt.title("Longitud de la Descripción por Medicamento")
+    plt.title("Longitud de la descripción por medicamento")
     plt.ylabel("Caracteres")
     plt.tight_layout()
     plt.savefig(nombre_archivo + "_grafico.png")
