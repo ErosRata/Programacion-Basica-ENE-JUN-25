@@ -9,7 +9,7 @@ if jugar == 'M' or jugar == 'm' or jugar == '1':
         print("Aguila")
     else:
         print("Sol")
-else:
-    jugar == "D" or jugar == 'd' or jugar == '2'
+elif jugar == "D" or jugar == 'd' or jugar == '2':
     numero = random.randrange(1,6)
     print(numero)
+else: print("Escoja bien")
