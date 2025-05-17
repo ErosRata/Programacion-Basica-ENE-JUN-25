@@ -1,0 +1,136 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{fcfm}
+
+
+
+
+\begin{document}
+
+%------ Encabezado -------- %
+\cabecera{Producto Integrador de Aprendizaje}{Grupo: 077}{Programa: \textit{"Farmacia Digital"} \LaTeX}{16 de Mayo de 2025}
+
+\rule{17cm}{0.1mm}
+
+\authorrowthree
+  {\customauthor{}{}{}{}}
+  {\customauthor{Abigail Váldez García}{abigail.valdezg@uanl.edu.mx}{Universidad Autónoma de Nuevo León}{San Nicolás de los Garza, Nuevo León, MX}}
+  {\customauthor{Helen Adaia Rocha Piña}{helen.rochap@uanl.edu.mx}{Universidad Autónoma de Nuevo León}{San Nicolás de los Garza, Nuevo León, MX}}
+
+\authorrowtwo
+  {\customauthor{José Iván Sánchez Carcamo}{jose.sanchezcrc@uanl.edu.mx}{Universidad Autónoma de Nuevo León}{San Nicolás de los Garza, Nuevo León, MX}}
+  {\customauthor{Edgar Rámirez Tamayo}{edgar.ramirezt@uanl.edu.mx}{Universidad Autónoma de Nuevo León}{San Nicolás de los Garza, Nuevo León, MX}}
+
+\authorrowone
+  {\customauthor{Eros Armanti Sierra Castillo}{eros.sierrac@uanl.edu.mx}{Universidad Autónoma de Nuevo León}{San Nicolás de los Garza, Nuevo León, MX}}
+
+
+
+\rule{17cm}{0.1mm}
+
+
+\begin{abstract}
+El uso del texto simulado \textit{"Lorem Ipsum"} es una práctica común en el diseño de plantillas \LaTeX{}, especialmente en etapas iniciales de desarrollo de documentos académicos y científicos. Esta herramienta tipográfica permite evaluar la distribución visual del contenido, el espaciado, y la consistencia de estilo sin depender del contenido final. En el entorno de \LaTeX{}, \textit{Lorem Ipsum} se implementa frecuentemente mediante paquetes como \texttt{lipsum}, los cuales generan automáticamente fragmentos de texto ficticio con la estructura de un lenguaje real, pero sin significado coherente. Su propósito no es comunicar información, sino ofrecer una representación visual del texto para facilitar el diseño y la validación del formato. Este artículo explora las ventajas de utilizar \textit{Lorem Ipsum} en el desarrollo de plantillas \LaTeX{}, analizando cómo mejora el flujo de trabajo editorial, permite detectar errores de maquetación y favorece la reutilización de formatos en distintos contextos. Además, se discuten consideraciones éticas y buenas prácticas para evitar la publicación accidental de texto ficticio en versiones finales. Se concluye que, aunque \textit{Lorem Ipsum} carece de contenido semántico, su uso estratégico en \LaTeX{} representa una herramienta eficaz para garantizar documentos profesionalmente estructurados desde las primeras fases de redacción.
+\end{abstract}
+
+\smallskip
+\noindent\textbf{Palabras clave:} \LaTeX{}, Lorem Ipsum, lipsum, plantillas, formato de documentos, texto simulado, tipografía.
+
+
+
+\section*{Introducción}
+En este proyecto integrador desarrollamos una solución informática que tiene como propósito recomendar medicamentos de manera preliminar a partir de un síntoma que el usuario introduce. El objetivo no es sustituir la consulta médica profesional, sino ofrecer una guía informativa basada en datos disponibles en una API pública de farmacia.
+Para esto, utilizamos el lenguaje de programación Python y varios módulos como requests, csv, matplotlib, openpyxl, statistics y sys. A lo largo del desarrollo, implementé técnicas de validación de entrada usando expresiones regulares, manejo de errores, análisis estadístico y generación de gráficas, cumpliendo con los requisitos establecidos en el plan del proyecto a lo largo de cinco semanas.
+
+En la vida cotidiana, muchas personas enfrentan síntomas comunes como dolor de cabeza, náuseas, fiebre, entre otros, y buscan en internet qué medicamento podrían tomar. Esto puede llevar a información incorrecta o peligrosa. El proyecto nace con la intención de consultar bases de datos fidedignas que, aunque no sustituyen a un médico, pueden brindar una referencia válida y responsable de los medicamentos más utilizados según el síntoma consultado.
+La API seleccionada fue la de API Ninjas – Drug, que permite buscar información relacionada con medicamentos usando un parámetro name. Esta API devuelve datos en formato JSON y requiere una API Key personal, que se obtiene gratuitamente registrándose. La información que proporciona: nombre del medicamento y la categoría o clase del fármaco.
+\lipsum[1-2]
+
+
+\section*{Metodología}
+Durante la semana 2 desarrollamos el primer script. Su objetivo fue conectarse a la API, validar el síntoma ingresado por el usuario, procesar la respuesta en JSON y guardar los resultados en un archivo .csv. Para la validacion de los datos de entrada se implementaron expresiones regulares para garantizar que el usuario no ingresara símbolos, números o datos inválidos. Como letras mayusculas, las tildes o acentos, letras exclusivas del español como la eñe. Esto restringe la entrada a letras (incluyendo acentos y ñ) con una longitud entre 3 y 50 caracteres. Llamamos a la API con el módulo requests para hacer la solicitud con la API Key. La información fue guardada  usando el módulo csv, permitiendo que sea reutilizable para análisis posteriores.
+
+En la semana 3, el objetivo fue leer los datos almacenados, validarlos nuevamente y aplicar estadísticas para entender mejor los resultados. Para la lectura del archivo se utilizó csv.DictReader() para recorrer el archivo .csv como un diccionario, haciendo el código más legible. 
+Las estadísticas que se realizaron:
+-Conteo por categoría de medicamento
+-Mediana de la longitud de los nombres de los medicamentos
+-Moda de la categoría más común
+Una validacion adicional se agregaron expresiones regulares para asegurar que los nombres de los medicamentos estuvieran en formato legible y seguro antes de ser procesados.
+
+En la semana 4 se crearon gráficas representativas con matplotlib y se exportaron los datos estadísticos a un archivo Excel utilizando openpyxl.
+Las gráficas que se crearon:
+1. Gráfico de barras: muestra el número de medicamentos por categoría.
+2. Gráfico de pastel: representa la proporción relativa de cada categoría.
+3. Histograma: analiza la longitud de los nombres de los medicamentos.
+4. Diagrama de dispersión: relaciona la posición del medicamento con la longitud de su categoría.
+Para la exportación a Excel se creó un archivo de Excel que almacena la categoría y el número de medicamentos asociados. El usuario puede personalizar el nombre del archivo con el módulo sys.
+Durante la quinta semana, nos enfocamos en la integración final de los dos scripts, así como en la validación completa del funcionamiento del sistema desde la entrada del usuario hasta la generación de los archivos de salida. Realizamos una revisión profunda del flujo de datos, asegurándonos de que cada componente funcionara de forma coherente, sin errores y con mensajes claros para el usuario.
+Entre las tareas más importantes que desarrollamos en esta etapa se encuentran:
+Pruebas exhaustivas con distintos síntomas válidos e inválidos para validar la robustez del sistema.
+Verificación de las validaciones de entrada con expresiones regulares, asegurando que ningún dato incorrecto o vacío pase a la siguiente etapa.
+Revisión del código para mantener una estructura clara, legible y eficiente.
+Pruebas del archivo Excel generado, verificando que las hojas estuvieran correctamente estructuradas, con estadísticas claras y gráficas funcionales.
+Preparación de la presentación del proyecto en video, donde dividimos la exposición entre los miembros del equipo, explicando tanto la lógica técnica como el impacto del proyecto.
+
+Durante la quinta semana, nos enfocamos en la integración final de los dos scripts, así como en la validación completa del funcionamiento del sistema desde la entrada del usuario hasta la generación de los archivos de salida. Realizamos una revisión profunda del flujo de datos, asegurándonos de que cada componente funcionara de forma coherente, sin errores y con mensajes claros para el usuario.
+Entre las tareas más importantes que desarrollamos en esta etapa se encuentran:
+Pruebas exhaustivas con distintos síntomas válidos e inválidos para validar la robustez del sistema.
+Verificación de las validaciones de entrada con expresiones regulares, asegurando que ningún dato incorrecto o vacío pase a la siguiente etapa.
+Revisión del código para mantener una estructura clara, legible y eficiente.
+Documentación detallada del código con comentarios explicativos.
+Pruebas del archivo Excel generado, verificando que las hojas estuvieran correctamente estructuradas, con estadísticas claras y gráficas funcionales.
+Preparación de la presentación del proyecto en video, donde dividimos la exposición entre los miembros del equipo, explicando tanto la lógica técnica como el impacto del proyecto.
+Redacción del informe final, incluyendo todas las fases del proyecto, reflexiones y propuestas de mejora.
+\lipsum[3-6] 
+
+
+\section*{Resultados}
+El proyecto se construyó con un enfoque robusto de validación. En cada paso:
+Se utilizaron expresiones regulares para las entradas del usuario.
+Se controlaron los errores de conexión a la API.
+Se verificaron los datos nulos o vacíos.
+Se manejaron excepciones comunes como archivos no encontrados o errores de tipo.
+Esto garantiza que el usuario no experimente fallos inesperados y que los datos procesados tengan integridad.
+
+Este proyecto nos permitió fortalecer habilidades importantes en programación con Python, especialmente:
+Interacción con APIs
+Procesamiento de datos en JSON y CSV
+Validación con expresiones regulares
+Uso de bibliotecas de análisis y visualización
+Automatización de tareas con scripts modulares
+Generación de gráficos y archivos Excel
+Además, reforcé la importancia de la integridad académica, escribiendo cada línea de código de forma original y entendiendo cada parte de la lógica.
+
+Al ejecutar ambos scripts, el usuario puede:
+Ingresar un síntoma
+Obtener una lista de medicamentos relacionados
+Almacenar esa información en un .csv
+Analizar las estadísticas de las categorías
+Visualizar la información gráficamente
+Exportar un resumen en Excel personalizado
+\lipsum[8-10]
+\begin{table}[ht]
+\begin{center}
+\label{table1} 
+\begin{tabular}{ccc}
+\hline
+\multicolumn{1}{c}{Distance, $d$ (km) } & \multicolumn{1}{c}{Voltage, $V\ (\pm 0.05$ V)} & \multicolumn{1}{c}{Current, $I$\ (mA $\pm 5$\%)}\\
+\hline
+1.2 $\pm$ 0.2 &  0.30 & 20 \\
+1.6 $\pm$ 0.4 &  0.21 & 30 \\
+2.5 $\pm$ 0.1 &  0.18 & 40 \\
+5.9 $\pm$ 0.2 &  0.13 & 50 \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\section*{Conclusiones}
+Durante el desarrollo de este proyecto integrador, como equipo experimentamos una evolución significativa tanto en lo técnico como en lo humano. Una de las primeras lecciones importantes fue la planificación del trabajo por etapas, lo cual fue clave para organizarnos de acuerdo a los entregables semanales. Otro aspecto que fortalecimos fue la comunicación efectiva entre los integrantes. En cuanto a lo técnico, este proyecto nos ayudó a consolidar conocimientos en el manejo de archivos CSV, validación con expresiones regulares, conexión a APIs, análisis estadístico con NumPy y statistics, y visualización con Matplotlib.
+Finalmente, reconocemos que, aunque la herramienta que construimos tiene un enfoque informativo, también tiene un potencial real si se mejora e integra con bases de datos clínicas más amplias.
+\bigskip
+
+\bibliographystyle{apalike-ejor}
+\bibliography{referencias}
+
+\end{document}
+
